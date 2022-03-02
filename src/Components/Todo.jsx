@@ -3,11 +3,20 @@ import TodoForm from "./TodoForm";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 
-export default function Todo({ todos, completeTodo, removeTodo }) {
+export default function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
+
+  const submitUpdate = (value) => {
+    updateTodo(edit.id, value);
+    setEdit({ id: null, value: "" });
+  };
+
+  if (edit.id) {
+    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+  }
 
   return todos.map((todo, index) => {
     return (

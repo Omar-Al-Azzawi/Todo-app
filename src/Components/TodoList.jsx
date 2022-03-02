@@ -35,6 +35,15 @@ export default function TodoList() {
     setTodos(removeArr);
   };
 
+  const updateTodos = (todoId, newValue) => {
+    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+      return;
+    }
+    setTodos((prev) => {
+      return prev.map((item) => (item.id === todoId ? newValue : item));
+    });
+  };
+
   const completeTodo = (id) => {
     const updateTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -48,7 +57,12 @@ export default function TodoList() {
   return (
     <div>
       <TodoForm onSubmit={addTodo} />
-      <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} />
+      <Todo
+        todos={todos}
+        completeTodo={completeTodo}
+        removeTodo={removeTodo}
+        updateTodo={updateTodos}
+      />
     </div>
   );
 }
