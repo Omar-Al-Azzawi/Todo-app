@@ -25,7 +25,7 @@ export default function TodoForm(props) {
   };
 
   return (
-    <form className="todo-form" onSubmit={handleSubmit}>
+    <form className="todo-form" data-cy="todo-form" onSubmit={handleSubmit}>
       <input
         className="todo-input"
         type="text"
@@ -34,8 +34,9 @@ export default function TodoForm(props) {
         name="text"
         onChange={handleChange}
         ref={inputRef}
+        data-cy="todo-input"
       />
-      <button className="todo-button" type="submit">
+      <button className="todo-button" data-cy="todo-btn" type="submit">
         Add
       </button>
     </form>

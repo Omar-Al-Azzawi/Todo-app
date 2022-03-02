@@ -55,7 +55,7 @@ export default function TodoList() {
   };
 
   return (
-    <div>
+    <div data-cy="todo-list">
       <TodoForm onSubmit={addTodo} />
       <Todo
         todos={todos}
