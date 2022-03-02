@@ -27,6 +27,7 @@ h1 {
   color: #fff;
   font-size: 24px;
   text-align: center;
+  letter-spacing: 10px;
 }
 
 .complete {
@@ -73,6 +74,10 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.todo-button:hover {
+  opacity: 0.7;
+}
+
 .todo-input.edit {
   border: 2px solid #149fff;
 }
@@ -105,39 +110,15 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4px auto;
+  margin: 6px auto;
   color: #fff;
   background: #161a2b;
   border: 1px solid #5d0cff;
   padding: 16px;
   border-radius: 5px;
-  width: 90%;
+  width: 50%;
   animation: fadeIn 1s;
 }
-
-/* .todo-row:nth-child(4n + 1) {
-  background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  );
-}
-
-.todo-row:nth-child(4n + 2) {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 12, 241, 1) 0%,
-    rgba(250, 0, 135, 1) 100%
-  );
-}
-
-.todo-row:nth-child(4n + 3) {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
-} */
 
 .icons {
   display: flex;
@@ -153,4 +134,13 @@ h1 {
 
 .edit-icon {
   color: #fff;
+}
+
+.delete-icon:hover {
+  color: #f04176;
+  cursor: pointer;
+}
+.edit-icon:hover {
+  color: #50bd1d;
+  cursor: pointer;
 }
