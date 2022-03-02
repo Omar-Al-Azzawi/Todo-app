@@ -3,7 +3,7 @@ import TodoForm from "./TodoForm";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 
-export default function Todo({ todos, completeTodo }) {
+export default function Todo({ todos, completeTodo, removeTodo }) {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
@@ -19,8 +19,19 @@ export default function Todo({ todos, completeTodo }) {
           {todo.text}
         </div>
         <div>
-          <AiOutlineDelete />
-          <FiEdit />
+          <AiOutlineDelete
+            className="delete-icon"
+            onClick={() => removeTodo(todo.id)}
+          />
+          <FiEdit
+            className="edit-icon"
+            onClick={() =>
+              setEdit({
+                id: todo.id,
+                value: todo.text,
+              })
+            }
+          />
         </div>
       </div>
     );
