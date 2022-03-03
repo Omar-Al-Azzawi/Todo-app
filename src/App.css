@@ -43,7 +43,6 @@ h1 {
   flex-direction: row;
   justify-content: center;
 }
-
 .todo-input {
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0 4px;
@@ -85,6 +84,34 @@ h1 {
   opacity: 0.7;
 }
 
+.update-todo-input {
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid #0cceff;
+  outline: none;
+  width: 320px;
+  height: 47.5px;
+  background: transparent;
+  color: #fff;
+  text-align: center;
+}
+.update-todo-button {
+  padding: 16px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgb(12, 219, 255) 0%,
+    rgb(0, 137, 250) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+}
+
 .todo-input.edit {
   border: 2px solid #149fff;
 }
@@ -124,7 +151,7 @@ h1 {
   padding: 16px;
   border-radius: 5px;
   width: 50%;
-  animation: fadeIn 1s;
+  animation: fadeIn 1.5s;
 }
 
 .icons {
