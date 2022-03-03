@@ -94,6 +94,7 @@ h1 {
   background: transparent;
   color: #fff;
   text-align: center;
+  animation: fadeIn 1.5s;
 }
 .update-todo-button {
   padding: 16px;
@@ -103,13 +104,14 @@ h1 {
   outline: none;
   background: linear-gradient(
     90deg,
-    rgb(12, 219, 255) 0%,
+    rgb(12, 255, 182) 0%,
     rgb(0, 137, 250) 100%
   );
   color: #fff;
   text-transform: capitalize;
   font-weight: bolder;
   margin-bottom: 2rem;
+  animation: fadeIn 1.5s;
 }
 
 .todo-input.edit {
