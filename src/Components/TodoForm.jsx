@@ -31,8 +31,7 @@ export default function TodoForm(props) {
           <input
             className="update-todo-input"
             type="text"
-            placeholder="Update..."
-            value={input}
+            placeholder={input}
             name="text"
             onChange={handleChange}
             ref={inputRef}

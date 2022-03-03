@@ -8,7 +8,7 @@ describe("test todo app", () => {
     cy.get("[data-cy=todo-input]").should(
       "have.attr",
       "placeholder",
-      "Add todo"
+      "Add todo..."
     );
     cy.get("[data-cy=todo-input]").type("Learn Cypress");
     cy.get("[data-cy=todo-input]").should("have.value", "Learn Cypress");
