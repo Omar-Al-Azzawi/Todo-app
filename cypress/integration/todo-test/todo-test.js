@@ -32,4 +32,24 @@ describe("test todo app", () => {
     // test if the todo is completed or not by check the class complete!
     cy.get("[data-cy=todo-row]").first().should("have.class", "complete");
   });
+  it("test the remove todo", () => {
+    cy.get("[data-cy=todo-row]").should("have.length", 3);
+    cy.get("[data-cy=delete-icon]").first().click();
+    cy.get("[data-cy=todo-row]").should("have.length", 2);
+    cy.get("[data-cy=delete-icon]").first().click();
+    cy.get("[data-cy=todo-row]").should("have.length", 1);
+    cy.get("[data-cy=delete-icon]").first().click();
+    cy.get("[data-cy=todo-row]").should("have.length", 0);
+  });
+  it("test the update todo", () => {
+    cy.get("[data-cy=todo-input]").type("Learn Cypress");
+    cy.get("[data-cy=todo-btn]").click();
+    cy.get("[data-cy=todo-row]").should("have.length", 4);
+    cy.get("[data-cy=edit-icon]").first().click();
+    cy.get(':nth-child(2) > [data-cy="todo-input"]').type(
+      "Learn more about Cypress"
+    );
+    cy.get(':nth-child(2) > [data-cy="todo-btn"]').click();
+    cy.get("[data-cy=todo-row]").should("contain", "Learn more about Cypress");
+  });
 });
