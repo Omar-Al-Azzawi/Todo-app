@@ -29,7 +29,7 @@ export default function TodoForm(props) {
       <input
         className="todo-input"
         type="text"
-        placeholder="Add todo"
+        placeholder="Add todo..."
         value={input}
         name="text"
         onChange={handleChange}
