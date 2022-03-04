@@ -2,7 +2,10 @@
 
 describe("test todo app", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("/");
+  });
+  it("check the url", () => {
+    cy.url().should("eq", "http://localhost:3000/");
   });
   it("test the input functionality", () => {
     cy.get("[data-cy=todo-input]").should(
