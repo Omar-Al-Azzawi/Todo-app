@@ -55,4 +55,9 @@ describe("test todo app", () => {
     cy.get(':nth-child(2) > [data-cy="todo-btn"]').click();
     cy.get("[data-cy=todo-row]").should("contain", "Learn more about Cypress");
   });
+  it("test the todo opacity", () => {
+    cy.get("[data-cy=todo-row]").should("have.css", "opacity", "1");
+    cy.get("[data-cy=todo-text]").first().click();
+    cy.get("[data-cy=todo-row]").should("have.css", "opacity", "0.4");
+  });
 });
