@@ -45,7 +45,8 @@ describe("test todo app", () => {
     cy.get("[data-cy=todo-row]").should("have.length", 0);
   });
   it("test the update todo", () => {
-    cy.get("[data-cy=todo-input]").type("Learn Cypress");
+    cy.get("[data-cy=todo-input]").as("todoInput");
+    cy.get("@todoInput").type("Learn Cypress");
     cy.get("[data-cy=todo-btn]").click();
     cy.get("[data-cy=todo-row]").should("have.length", 4);
     cy.get("[data-cy=edit-icon]").first().click();
@@ -55,7 +56,7 @@ describe("test todo app", () => {
     cy.get(':nth-child(2) > [data-cy="todo-btn"]').click();
     cy.get("[data-cy=todo-row]").should("contain", "Learn more about Cypress");
   });
-  it("test the todo opacity", () => {
+  it("test the todo css opacity", () => {
     cy.get("[data-cy=todo-row]").should("have.css", "opacity", "1");
     cy.get("[data-cy=todo-text]").first().click();
     cy.get("[data-cy=todo-row]").should("have.css", "opacity", "0.4");
