@@ -61,4 +61,10 @@ describe("test todo app", () => {
     cy.get("[data-cy=todo-text]").first().click();
     cy.get("[data-cy=todo-row]").should("have.css", "opacity", "0.4");
   });
+  it("log all the todo", () => {
+    // use each to loop and to log all the todo
+    cy.get("[data-cy=todo-row]").each(($el, index, $list) => {
+      cy.log($el.text());
+    });
+  });
 });
