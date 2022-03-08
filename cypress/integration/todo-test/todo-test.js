@@ -65,6 +65,24 @@ describe("test todo app", () => {
     // use each to loop and to log all the todo
     cy.get("[data-cy=todo-row]").each(($el, index, $list) => {
       cy.log($el.text());
+      if (index === $list.length - 1) {
+        cy.log("All todo are listed");
+      } else {
+        cy.log("Not all todo are listed");
+      }
     });
+  });
+  it("test the background color", () => {
+    cy.get("[data-cy=todo-row]").should(
+      "have.css",
+      "background-color",
+      "rgb(22, 26, 43)"
+    );
+    cy.get("[data-cy=todo-text]").first().click();
+    cy.get("[data-cy=todo-row]").should(
+      "have.css",
+      "background-color",
+      "rgb(22, 26, 43)"
+    );
   });
 });
