@@ -6,6 +6,11 @@ describe("test todo app", () => {
   });
   it("check the url", () => {
     cy.url().should("eq", "http://localhost:3000/");
+    cy.url().then((url) => {
+      cy.request(url).then((response) => {
+        expect(response.status).to.eq(200);
+      });
+    });
   });
   it("test the input functionality", () => {
     cy.get("[data-cy=todo-input]").should(
