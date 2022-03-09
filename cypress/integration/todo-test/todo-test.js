@@ -4,13 +4,19 @@ describe("test todo app", () => {
   beforeEach(() => {
     cy.visit("/");
   });
-  it("check the url", () => {
+  it.only("check the url", () => {
     cy.url().should("eq", "http://localhost:3000/");
     cy.url().then((url) => {
       cy.request(url).then((response) => {
         expect(response.status).to.eq(200);
       });
     });
+    cy.intercept("GET", "http://localhost:3000/").as("getTodos");
+  });
+  it.only("test hover on the add btn", () => {
+    cy.get("[data-cy=todo-btn]")
+      .realHover()
+      .should("have.css", "opacity", "0.7");
   });
   it("test the input functionality", () => {
     cy.get("[data-cy=todo-input]").should(
