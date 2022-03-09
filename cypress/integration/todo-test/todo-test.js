@@ -13,7 +13,7 @@ describe("test todo app", () => {
     });
     cy.intercept("GET", "http://localhost:3000/").as("getTodos");
   });
-  it.only("test hover on the add btn", () => {
+  it("test hover on the add btn", () => {
     cy.get("[data-cy=todo-btn]")
       .realHover()
       .should("have.css", "opacity", "0.7");
@@ -54,6 +54,12 @@ describe("test todo app", () => {
     cy.get("[data-cy=todo-row]").should("have.length", 1);
     cy.get("[data-cy=delete-icon]").first().click();
     cy.get("[data-cy=todo-row]").should("have.length", 0);
+  });
+  it.only("test the remove alert", () => {
+    cy.get("[data-cy=delete-icon]").first().click();
+    cy.on("window:alert", (str) => {
+      expect(str).to.eq("Todo 1 removed");
+    });
   });
   it("test the update todo", () => {
     cy.get("[data-cy=todo-input]").as("todoInput");
