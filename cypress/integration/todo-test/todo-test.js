@@ -115,4 +115,9 @@ describe("test todo app", () => {
       "rgb(255, 255, 255)"
     );
   });
+  // test blur text
+  it.only("test the clear text", () => {
+    cy.get("[data-cy=todo-input]").type("Learn more about Cypress").clear();
+    cy.get("[data-cy=todo-input]").should("have.value", "");
+  });
 });
