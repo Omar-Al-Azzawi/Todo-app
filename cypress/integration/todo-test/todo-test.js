@@ -4,7 +4,7 @@ describe("test todo app", () => {
   beforeEach(() => {
     cy.visit("/");
   });
-  it.only("check the url", () => {
+  it("check the url", () => {
     cy.url().should("eq", "http://localhost:3000/");
     cy.url().then((url) => {
       cy.request(url).then((response) => {
@@ -100,6 +100,19 @@ describe("test todo app", () => {
       "have.css",
       "background-color",
       "rgb(22, 26, 43)"
+    );
+  });
+  it.only("test the todo text color", () => {
+    cy.get("[data-cy=todo-row]").should(
+      "have.css",
+      "color",
+      "rgb(255, 255, 255)"
+    );
+    cy.get("[data-cy=todo-text]").first().click();
+    cy.get("[data-cy=todo-row]").should(
+      "have.css",
+      "color",
+      "rgb(255, 255, 255)"
     );
   });
 });
