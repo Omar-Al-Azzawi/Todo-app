@@ -2,4 +2,4 @@ name: ci
 on: [push]
 jobs: 
   test:
-    uses: .github/workflows/standard.yml
+    uses: TODO-APP/.github/workflows/standard.yml
