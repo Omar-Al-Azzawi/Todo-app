@@ -55,6 +55,8 @@ export default function TodoList() {
     setTodos(updateTodos);
   };
 
+  const todoLength = todos.length;
+
   return (
     <div data-cy="todo-list">
       <TodoForm onSubmit={addTodo} />
