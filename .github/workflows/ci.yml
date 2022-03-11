@@ -13,8 +13,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          build: yarn run build
-          start: yarn start
+          start: npm start
           record: true
         env: 
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
