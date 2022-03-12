@@ -25,6 +25,9 @@ describe("test todo app", () => {
       "Add todo..."
     );
     cy.get("[data-cy=todo-input]").type("Learn Cypress");
+    cy.clock().then((clock) => {
+      clock.tick(1000);
+    });
     cy.get("[data-cy=todo-input]").should("have.value", "Learn Cypress");
     cy.get("[data-cy=todo-btn]").click();
   });
@@ -34,11 +37,14 @@ describe("test todo app", () => {
       .and("contain", "Learn Redux")
       .and("contain", "Learn React");
   });
-  it("test the length of the todo list", () => {
+  it.only("test the length of the todo list", () => {
     cy.get("[data-cy=todo-row]").should("have.length", 3);
     cy.get("[data-cy=todo-input]").type("Learn more about Cypress");
     cy.get("[data-cy=todo-btn]").click();
     cy.get("[data-cy=todo-row]").should("have.length", 4);
+    cy.get("[data-cy=todo-row]")
+      .eq(0)
+      .should("contain", "Learn more about Cypress");
   });
   it("test the complete todo", () => {
     cy.get("[data-cy=todo-row]").should("have.class", "todo-row");
@@ -55,7 +61,7 @@ describe("test todo app", () => {
     cy.get("[data-cy=delete-icon]").first().click();
     cy.get("[data-cy=todo-row]").should("have.length", 0);
   });
-  it.only("test the remove alert", () => {
+  it("test the remove alert", () => {
     cy.get("[data-cy=delete-icon]").first().click();
     cy.on("window:alert", (str) => {
       expect(str).to.eq("Todo 1 removed");
@@ -102,7 +108,7 @@ describe("test todo app", () => {
       "rgb(22, 26, 43)"
     );
   });
-  it.only("test the todo text color", () => {
+  it("test the todo text color", () => {
     cy.get("[data-cy=todo-row]").should(
       "have.css",
       "color",
@@ -116,8 +122,17 @@ describe("test todo app", () => {
     );
   });
   // test blur text
-  it.only("test the clear text", () => {
+  it("test the clear text", () => {
     cy.get("[data-cy=todo-input]").type("Learn more about Cypress").clear();
     cy.get("[data-cy=todo-input]").should("have.value", "");
+  });
+
+  // test the document
+  it("test the document", () => {
+    cy.document().should("have.property", "title", "Todo App");
+    cy.document().should("have.property", "charset", "UTF-8");
+    cy.document().should("have.property", "contentType", "text/html");
+    cy.document().should("have.property", "cookie", "");
+    cy.document().should("have.property", "referrer", "");
   });
 });
