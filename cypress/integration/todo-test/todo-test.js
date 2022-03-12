@@ -4,6 +4,11 @@ describe("test todo app", () => {
   beforeEach(() => {
     cy.visit("/");
   });
+  it("Should override the current time", () => {
+    const currentTime = new Date(2022, 3, 12).getTime();
+    cy.clock(currentTime);
+    cy.log(currentTime);
+  });
   it("check the url", () => {
     cy.url().should("eq", "http://localhost:3000/");
     cy.url().then((url) => {
@@ -37,7 +42,7 @@ describe("test todo app", () => {
       .and("contain", "Learn Redux")
       .and("contain", "Learn React");
   });
-  it.only("test the length of the todo list", () => {
+  it("test the length of the todo list", () => {
     cy.get("[data-cy=todo-row]").should("have.length", 3);
     cy.get("[data-cy=todo-input]").type("Learn more about Cypress");
     cy.get("[data-cy=todo-btn]").click();
@@ -134,5 +139,10 @@ describe("test todo app", () => {
     cy.document().should("have.property", "contentType", "text/html");
     cy.document().should("have.property", "cookie", "");
     cy.document().should("have.property", "referrer", "");
+  });
+  // filter todo
+  it.only("test the filter todo", () => {
+    cy.get("[data-cy=todo-text]").first().click();
+    cy.get("[data-cy=todo-row]").filter(".complete").should("have.length", 1);
   });
 });
