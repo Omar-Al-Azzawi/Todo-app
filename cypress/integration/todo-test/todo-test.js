@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* import cy from "cypress"; */
 /// <reference types="cypress" />
 
 describe("test todo app", () => {
@@ -141,8 +143,31 @@ describe("test todo app", () => {
     cy.document().should("have.property", "referrer", "");
   });
   // filter todo
-  it.only("test the filter todo", () => {
+  it("test the filter todo", () => {
     cy.get("[data-cy=todo-text]").first().click();
     cy.get("[data-cy=todo-row]").filter(".complete").should("have.length", 1);
+  });
+  it("test the url properties", () => {
+    cy.hash().should("eq", "");
+    cy.url().should("include", "/");
+    cy.window().should("have.property", "location");
+    cy.window().should((win) => {
+      expect(win.location.pathname).to.eq("/");
+      expect(win.location.hash).to.eq("");
+      expect(win.location.search).to.eq("");
+    });
+  });
+  it("test the reload", () => {
+    cy.get("[data-cy=delete-icon]").first().click();
+    cy.reload();
+    cy.url().should("include", "/");
+    cy.get("[data-cy=todo-row]").should("have.length", 3);
+  });
+  it.only("test the next function", () => {
+    cy.get("[data-cy=todo-row]").should("have.length", 3);
+    cy.get("[data-cy=todo-row]")
+      .first()
+      .nextUntil("[data-cy=todo-row]")
+      .should("have.length", 0);
   });
 });
