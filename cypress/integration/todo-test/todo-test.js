@@ -169,5 +169,6 @@ describe("test todo app", () => {
       .first()
       .nextUntil("[data-cy=todo-row]")
       .should("have.length", 0);
+    cy.screenshot();
   });
 });
