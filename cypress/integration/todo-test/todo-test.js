@@ -171,11 +171,14 @@ describe("test todo app", () => {
       .should("have.length", 0);
     cy.screenshot();
   });
-  it.only("test the length of the todo list", () => {
+  it("test the length of the todo list", () => {
     cy.get("[data-cy=todo-row]").should("have.length", 3);
     cy.get("[data-cy=todo-row]")
       .first()
       .nextUntil("[data-cy=todo-row]")
       .should("have.length", 0);
+  });
+  it.only("test the url with request", () => {
+    cy.request("/").its("body").should("include", "<title>Todo App</title>");
   });
 });
