@@ -178,7 +178,14 @@ describe("test todo app", () => {
       .nextUntil("[data-cy=todo-row]")
       .should("have.length", 0);
   });
-  it.only("test the url with request", () => {
+  it("test the url with request", () => {
     cy.request("/").its("body").should("include", "<title>Todo App</title>");
+  });
+  it.only("Complete todo", () => {
+    cy.get("[data-cy=todo-text]").first().click();
+    cy.get("[data-cy=todo-text]").first().click();
+    cy.get("[data-cy=todo-row]").filter(".complete").should("have.length", 0);
+    cy.get("[data-cy=todo-text]").last().click();
+    cy.get("[data-cy=todo-row]").filter(".complete").should("have.length", 1);
   });
 });
