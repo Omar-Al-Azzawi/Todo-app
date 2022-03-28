@@ -14,7 +14,7 @@ body {
   flex-direction: column;
   justify-content: start;
   width: 520px;
-  min-height: 600px;
+  height: 100vh;
   background: #161a2b;
   text-align: center;
   margin: 128px auto;
