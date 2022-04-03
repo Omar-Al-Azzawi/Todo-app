@@ -56,7 +56,6 @@ export default function TodoList() {
   };
 
   const todoLength = todos.length;
-  console.log(todoLength);
 
   return (
     <div data-cy="todo-list">
