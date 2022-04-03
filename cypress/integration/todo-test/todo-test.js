@@ -188,10 +188,10 @@ describe("test todo app", () => {
     cy.get("[data-cy=todo-text]").last().click();
     cy.get("[data-cy=todo-row]").filter(".complete").should("have.length", 1);
   });
-  it.only("Test the theme switcher", () => {
+  it("Test the theme switcher", () => {
     cy.get(".theme-btn").click();
     cy.get(".App").should("have.css", "background-color", "rgb(22, 26, 43)");
     cy.get(".theme-btn").click();
-    cy.get(".App").should("have.css", "background-color", "rgb(255, 255, 255)");
+    cy.get(".App").should("have.css", "background-color", "rgb(255, 255, 255)"); 
   });
 });

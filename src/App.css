@@ -29,6 +29,9 @@ h1 {
   text-align: center;
   letter-spacing: 10px;
 }
+h2{
+  text-align: center;
+}
 .theme-btn {
   background-color: #fff;
   color: #161a2b;
