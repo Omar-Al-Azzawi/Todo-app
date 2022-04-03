@@ -56,10 +56,12 @@ export default function TodoList() {
   };
 
   const todoLength = todos.length;
+  console.log(todoLength);
 
   return (
     <div data-cy="todo-list">
       <TodoForm onSubmit={addTodo} />
+      <h2>You have {todoLength} Todo</h2>
       <Todo
         todos={todos}
         completeTodo={completeTodo}
