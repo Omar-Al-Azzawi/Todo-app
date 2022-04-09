@@ -192,14 +192,16 @@ describe("test todo app", () => {
     cy.get(".theme-btn").click();
     cy.get(".App").should("have.css", "background-color", "rgb(22, 26, 43)");
     cy.get(".theme-btn").click();
-    cy.get(".App").should("have.css", "background-color", "rgb(255, 255, 255)"); 
+    cy.get(".App").should("have.css", "background-color", "rgb(255, 255, 255)");
   });
 
-  it.only("Test the length of the completed todo", ()=> {
+  it.only("Test the length of the completed todo", () => {
     cy.get("[data-cy=todo-row]").filter(".complete").should("have.length", 0);
     cy.get("[data-cy=todo-text]").first().click();
     cy.get("[data-cy=todo-row]").filter(".complete").should("have.length", 1);
-    cy.get('[data-cy="todo-list"] > :nth-child(3)').should("contain", "You have 1 completed Todo") 
-
-  })
+    cy.get('[data-cy="todo-list"] > :nth-child(3)').should(
+      "contain",
+      "You have 1 completed Todo"
+    );
+  });
 });

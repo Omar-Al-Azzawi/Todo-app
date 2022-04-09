@@ -58,7 +58,6 @@ export default function TodoList() {
   const todoLength = todos.length;
   const completedLength = todos.filter((todo) => todo.completed).length;
 
-
   return (
     <div data-cy="todo-list">
       <TodoForm onSubmit={addTodo} />

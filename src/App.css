@@ -9,13 +9,14 @@
 body {
   background-color: #161a2b;
 }
+.App {
+  height: 100vh;
+}
 .todo-app {
   display: flex;
   flex-direction: column;
   justify-content: start;
   width: 520px;
-  height: 100vh;
-  background: #161a2b;
   text-align: center;
   margin: 128px auto;
   border-radius: 10px;
@@ -24,18 +25,16 @@ body {
 
 h1 {
   margin: 32px 0;
-  color: #fff;
   font-size: 24px;
   text-align: center;
   letter-spacing: 10px;
 }
-h2{
+h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 .theme-btn {
   background-color: #fff;
-  color: #161a2b;
   border: 1px solid #161a2b;
   padding: 8px 16px;
   border-radius: 5px;
@@ -160,13 +159,17 @@ h2{
   justify-content: space-between;
   align-items: center;
   margin: 6px auto;
-  color: #fff;
-  background: #161a2b;
   border: 1px solid #5d0cff;
   padding: 16px;
   border-radius: 5px;
-  width: 50%;
+  width: 700px;
   animation: fadeIn 1.5s;
+}
+
+@media screen and (max-width: 768px) {
+  .todo-row {
+    width: 90%;
+  }
 }
 
 .icons {
@@ -178,11 +181,10 @@ h2{
 
 .delete-icon {
   margin-right: 5px;
-  color: #fff;
 }
 
 .edit-icon {
-  color: #fff;
+  margin-right: 5px;
 }
 
 .delete-icon:hover {
@@ -192,4 +194,16 @@ h2{
 .edit-icon:hover {
   color: #50bd1d;
   cursor: pointer;
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+}
+
+.theme-btn {
+  background-color: inherit;
+  border: 1.5px solid #5d0cff;
 }
