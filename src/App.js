@@ -14,14 +14,16 @@ function App() {
       className="App"
       style={{ backgroundColor: theme.background, color: theme.color }}
     >
-      <h1>TODO</h1>
-      <button
-        className="theme-btn"
-        style={{ color: theme.color, transition: "all 1s ease" }}
-        onClick={toggleTheme}
-      >
-        {isDark ? <MdWbSunny /> : <MdOutlineDarkMode />}
-      </button>
+      <div className="theme-toggle">
+        <h1>TODO</h1>
+        <button
+          className="theme-btn"
+          style={{ color: theme.color, transition: "all 1s ease" }}
+          onClick={toggleTheme}
+        >
+          {isDark ? <MdWbSunny /> : <MdOutlineDarkMode />}
+        </button>
+      </div>
       <TodoList />
     </div>
   );
