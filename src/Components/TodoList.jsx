@@ -61,14 +61,16 @@ export default function TodoList() {
   return (
     <div data-cy="todo-list">
       <TodoForm onSubmit={addTodo} />
-      <h2>You have {todoLength} Todo</h2>
-      <h2>You have {completedLength} completed Todo</h2>
       <Todo
         todos={todos}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodos}
       />
+      <div className="todo_list_info">
+        <h2>Todo: {todoLength - completedLength}</h2>
+        <h2>completed: {completedLength}</h2>
+      </div>
     </div>
   );
 }

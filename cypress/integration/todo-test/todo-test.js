@@ -102,32 +102,7 @@ describe("test todo app", () => {
       }
     });
   });
-  it("test the background color", () => {
-    cy.get("[data-cy=todo-row]").should(
-      "have.css",
-      "background-color",
-      "rgb(22, 26, 43)"
-    );
-    cy.get("[data-cy=todo-text]").first().click();
-    cy.get("[data-cy=todo-row]").should(
-      "have.css",
-      "background-color",
-      "rgb(22, 26, 43)"
-    );
-  });
-  it("test the todo text color", () => {
-    cy.get("[data-cy=todo-row]").should(
-      "have.css",
-      "color",
-      "rgb(255, 255, 255)"
-    );
-    cy.get("[data-cy=todo-text]").first().click();
-    cy.get("[data-cy=todo-row]").should(
-      "have.css",
-      "color",
-      "rgb(255, 255, 255)"
-    );
-  });
+
   // test blur text
   it("test the clear text", () => {
     cy.get("[data-cy=todo-input]").type("Learn more about Cypress").clear();
@@ -195,13 +170,13 @@ describe("test todo app", () => {
     cy.get(".App").should("have.css", "background-color", "rgb(255, 255, 255)");
   });
 
-  it.only("Test the length of the completed todo", () => {
-    cy.get("[data-cy=todo-row]").filter(".complete").should("have.length", 0);
-    cy.get("[data-cy=todo-text]").first().click();
-    cy.get("[data-cy=todo-row]").filter(".complete").should("have.length", 1);
-    cy.get('[data-cy="todo-list"] > :nth-child(3)').should(
-      "contain",
-      "You have 1 completed Todo"
-    );
+  it("Theme switch btn", () => {
+    // Switch to dark theme
+    cy.get(".theme-btn > svg").click();
+    cy.get(".App").should("have.css", "background-color", "rgb(22, 26, 43)");
+
+    // Switch to light theme
+    cy.get(".theme-btn > svg").click();
+    cy.get(".App").should("have.css", "background-color", "rgb(255, 255, 255)");
   });
 });
