@@ -207,3 +207,9 @@ h2 {
   background-color: inherit;
   border: 1.5px solid #5d0cff;
 }
+
+.todo_list_info {
+  margin: 2rem;
+  position: fixed;
+  bottom: 10px;
+}
