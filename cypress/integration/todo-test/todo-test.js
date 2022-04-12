@@ -174,9 +174,11 @@ describe("test todo app", () => {
     // Switch to dark theme
     cy.get(".theme-btn > svg").click();
     cy.get(".App").should("have.css", "background-color", "rgb(22, 26, 43)");
+    cy.get("h1").should("have.css", "color", "rgb(255, 255, 255)");
 
     // Switch to light theme
     cy.get(".theme-btn > svg").click();
     cy.get(".App").should("have.css", "background-color", "rgb(255, 255, 255)");
+    cy.get("h1").should("have.css", "color", "rgb(26, 32, 44)");
   });
 });
