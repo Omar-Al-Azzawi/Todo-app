@@ -35,7 +35,7 @@ export default function TodoForm(props) {
             name="text"
             onChange={handleChange}
             ref={inputRef}
-            data-cy="todo-input"
+            data-cy="todo-edit-input"
           />
           <button
             className="update-todo-button"
