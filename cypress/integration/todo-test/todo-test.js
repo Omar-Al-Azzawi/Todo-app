@@ -35,4 +35,15 @@ describe("Todo app", function () {
     cy.get('[data-cy="todo-row"]').should("have.length", 3);
     cy.get('[data-cy="todo-row"]').should("have.class", "complete");
   });
+  it("can clear completed todos", function () {
+    for (let i = 0; i < 3; i++) {
+      cy.get('[data-cy="todo-text"]').eq(i).click();
+    }
+    cy.get('[data-cy="todo-row"]').should("have.length", 3);
+    cy.get('[data-cy="todo-row"]').should("have.class", "complete");
+    for (let i = 0; i < 3; i++) {
+      cy.get('[data-cy="todo-text"]').eq(i).click();
+    }
+    cy.get('[data-cy="todo-row"]').should("not.have.class", "complete");
+  });
 });
