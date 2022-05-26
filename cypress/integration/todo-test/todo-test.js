@@ -55,4 +55,8 @@ describe("Todo app", function () {
     }
     cy.get('[data-cy="todo-row"]').should("have.length", 0);
   });
+  it("should not add a todo if input is empty", function () {
+    cy.get('[data-cy="todo-input"]').type("{enter}");
+    cy.get('[data-cy="todo-row"]').should("have.length", 3);
+  });
 });
