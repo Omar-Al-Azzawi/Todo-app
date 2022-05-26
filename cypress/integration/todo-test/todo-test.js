@@ -46,4 +46,13 @@ describe("Todo app", function () {
     }
     cy.get('[data-cy="todo-row"]').should("not.have.class", "complete");
   });
+  it("Can delete all todos", function () {
+    for (let i = 0; i < 3; i++) {
+      cy.get('[data-cy="todo-row"]')
+        .eq(0)
+        .find('[data-cy="delete-icon"]')
+        .click();
+    }
+    cy.get('[data-cy="todo-row"]').should("have.length", 0);
+  });
 });
