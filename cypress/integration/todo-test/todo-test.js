@@ -7,7 +7,7 @@ describe("Todo app", function () {
     cy.visit("http://localhost:3000");
   });
   it("should add a todo", function () {
-    cy.get('[data-cy="todo-input"]').type("Learn React{enter}");
+    cy.addTodo("Learn Cypress"); // create custom command to add todo
     cy.get('[data-cy="todo-row"]').should("have.length", 4);
   });
   it("should delete a todo", function () {
@@ -56,7 +56,7 @@ describe("Todo app", function () {
     cy.get('[data-cy="todo-row"]').should("have.length", 0);
   });
   it("should not add a todo if input is empty", function () {
-    cy.get('[data-cy="todo-input"]').type("{enter}");
+    cy.addTodo("{enter}");
     cy.get('[data-cy="todo-row"]').should("have.length", 3);
   });
 });

@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+/* eslint-disable no-undef */
+/* import cy from "cypress"; */
+/// <reference types="cypress" />
+
+Cypress.Commands.add("addTodo", (text) => {
+  cy.get('[data-cy="todo-input"]').type(text);
+  cy.get('[data-cy="todo-input"]').type("{enter}");
+});
