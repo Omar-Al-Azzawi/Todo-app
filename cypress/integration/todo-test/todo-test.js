@@ -63,4 +63,10 @@ describe("Todo app", function () {
     cy.addTodo("   ");
     cy.get('[data-cy="todo-row"]').should("have.length", 3);
   });
+  it("Can toggle the theme", function () {
+    cy.get(".theme-btn").click();
+    cy.get(".App").should("have.css", "background-color", "rgb(22, 26, 43)");
+    cy.get(".theme-btn").click();
+    cy.get(".App").should("have.css", "background-color", "rgb(255, 255, 255)");
+  });
 });
